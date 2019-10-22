@@ -33,7 +33,7 @@
       // "args": ["<", "${fileDirname}/in_1.txt"],
       "args": [],
       "cwd": "${fileDirname}",
-      "stdio": "${fileDirname}/in_3.txt",
+      "stdio": "${fileDirname}/in_2.txt",
       // "stopAtEntry": false,
       // "environment": [],
       // "externalConsole": false,

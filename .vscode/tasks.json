@@ -27,10 +27,7 @@
         ]
       },
       "options": {
-        "cwd": "${fileDirname}",
-        "env": {
-          "USE_CCACHE": "1"
-        }
+        "cwd": "${fileDirname}"
       },
       "problemMatcher": "$gcc",
       "group": "build"
@@ -49,10 +46,7 @@
         "-Wall"
       ],
       "options": {
-        "cwd": "${fileDirname}",
-        "env": {
-          "USE_CCACHE": "1"
-        }
+        "cwd": "${fileDirname}"
       },
       "problemMatcher": "$gcc",
       "group": "build"
@@ -61,9 +55,7 @@
       "type": "shell",
       "label": "atcoder-tools test",
       "command": "atcoder-tools",
-      "args": [
-        "test"
-      ],
+      "args": ["test"],
       "options": {
         "cwd": "${fileDirname}"
       },
@@ -71,17 +63,14 @@
         "kind": "build",
         "isDefault": true
       },
-      "dependsOn": [
-        "clang++ build active file"
-      ]
+      "dependsOn": ["clang++ build active file"],
+      "problemMatcher": []
     },
     {
       "type": "shell",
       "label": "atcoder-tools submit",
       "command": "atcoder-tools",
-      "args": [
-        "submit"
-      ],
+      "args": ["submit"],
       "options": {
         "cwd": "${fileDirname}"
       },
@@ -92,10 +81,7 @@
       "type": "shell",
       "label": "atcoder-tools gen",
       "command": "atcoder-tools",
-      "args": [
-        "gen",
-        "${input:contest_id}"
-      ],
+      "args": ["gen", "${input:contest_id}"],
       "options": {
         "cwd": "${workspaceFolder}"
       },
