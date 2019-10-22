@@ -1,32 +1,19 @@
 #include <bits/stdc++.h>
+#include <boost/algorithm/string/replace.hpp>
 using namespace std;
 
 const string YES = "YES";
 const string NO = "NO";
-// const string words[4] = {"dreamer", "eraser", "dream", "erase"};
-
-// bool traverse(string S) {
-//   if (S.empty())
-//     return true;
-//   for (string w : words) {
-//     if (S.find(w) == -1)
-//       continue;
-//     string s(S);
-//     if (traverse(s.erase(0, w.size()))) {
-//       return true;
-//     }
-//   }
-//   return false;
-// }
 
 void solve(std::string S) {
-  //   if (traverse(S))
-  //     cout << YES << endl;
-  //   else
-  //     cout << NO << endl;
-  regex re("(?:dreamer|eraser|dream|erase)+");
-  smatch match;
-  if (regex_match(S, match, re))
+  if (boost::algorithm::replace_all_copy(
+          boost::algorithm::replace_all_copy(
+              boost::algorithm::replace_all_copy(
+                  boost::algorithm::replace_all_copy(S, "eraser", ""), "erase",
+                  ""),
+              "dreamer", ""),
+          "dream", "")
+          .size() == 0)
     cout << YES << endl;
   else
     cout << NO << endl;
