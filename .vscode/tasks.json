@@ -1,0 +1,113 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "g++ build active file",
+      "command": "ccache",
+      "args": [
+        "g++",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/a.out",
+        "-std=c++14",
+        "-Wall"
+      ],
+      "osx": {
+        "args": [
+          "g++-9",
+          "-g",
+          "${file}",
+          "-o",
+          "${fileDirname}/a.out",
+          "-I/usr/local/include",
+          "-std=c++14",
+          "-Wall"
+        ]
+      },
+      "options": {
+        "cwd": "${fileDirname}",
+        "env": {
+          "USE_CCACHE": "1"
+        }
+      },
+      "problemMatcher": "$gcc",
+      "group": "build"
+    },
+    {
+      "type": "shell",
+      "label": "clang++ build active file",
+      "command": "ccache",
+      "args": [
+        "clang++",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/a.out",
+        "-std=c++14",
+        "-Wall"
+      ],
+      "options": {
+        "cwd": "${fileDirname}",
+        "env": {
+          "USE_CCACHE": "1"
+        }
+      },
+      "problemMatcher": "$gcc",
+      "group": "build"
+    },
+    {
+      "type": "shell",
+      "label": "atcoder-tools test",
+      "command": "atcoder-tools",
+      "args": [
+        "test"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": [
+        "clang++ build active file"
+      ]
+    },
+    {
+      "type": "shell",
+      "label": "atcoder-tools submit",
+      "command": "atcoder-tools",
+      "args": [
+        "submit"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "label": "atcoder-tools gen",
+      "command": "atcoder-tools",
+      "args": [
+        "gen",
+        "${input:contest_id}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "none",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "contest_id",
+      "description": "Contest ID (e.g. arc001)",
+      "type": "promptString"
+    }
+  ]
+}
