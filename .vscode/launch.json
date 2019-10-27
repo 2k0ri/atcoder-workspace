@@ -30,26 +30,11 @@
       "type": "lldb",
       "request": "launch",
       "program": "${fileDirname}/a.out",
-      // "args": ["<", "${fileDirname}/in_1.txt"],
       "args": [],
       "cwd": "${fileDirname}",
-      "stdio": ["${fileDirname}/in_1.txt", null, null],
-      // "stopAtEntry": false,
-      // "environment": [],
-      // "externalConsole": false,
-      // "MIMode": "lldb",
-      // "miDebuggerPath": "/usr/bin/lldb",
-      // "miDebuggerPath": "${env:HOME}/.vscode/extensions/ms-vscode.cpptools-0.26.0/debugAdapters/lldb/bin/lldb-mi",
+      "stdio": ["${fileDirname}/in_3.txt", null, null],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
-      // "logging": {
-      //   "trace": true,
-      //   "engineLogging": true,
-      //   "traceResponse": true
-      // },
-      // "setupCommands": [
-      //   { "text": "settings set target.input-path ${fileDirname}/in_1.txt" }
-      // ]
     }
   ]
 }
