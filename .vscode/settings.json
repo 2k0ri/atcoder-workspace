@@ -74,7 +74,11 @@
     "scoped_allocator": "cpp",
     "typeindex": "cpp",
     "valarray": "cpp",
-    "*.ipp": "cpp"
+    "*.ipp": "cpp",
+    "__functional_03": "cpp",
+    "__mutex_base": "cpp",
+    "filesystem": "cpp",
+    "variant": "cpp"
   },
   "debug.node.autoAttach": "on",
   "lldb.launch.expressions": "native",

@@ -32,7 +32,7 @@
       "program": "${fileDirname}/a.out",
       "args": [],
       "cwd": "${fileDirname}",
-      "stdio": ["${fileDirname}/in_3.txt", null, null],
+      "stdio": ["${fileDirname}/in_1.txt", null, null],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
     }
