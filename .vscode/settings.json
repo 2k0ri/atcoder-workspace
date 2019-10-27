@@ -80,7 +80,5 @@
   "lldb.launch.expressions": "native",
   "lldb.launch.terminal": "integrated",
   "lldb.verboseLogging": true,
-  "lldb.adapterType": "classic",
-"lldb.launch.cwd": "${fileDirname}",
-"clang-format.executable": ""
+  "lldb.adapterType": "classic"
 }

@@ -1,6 +1,101 @@
 {
   "version": "2.0.0",
+  "presentation": {
+    "echo": true,
+    "reveal": "always",
+    "focus": false,
+    "panel": "shared",
+    "showReuseMessage": false,
+    "clear": false
+  },
   "tasks": [
+    {
+      "type": "shell",
+      "label": "atcoder-tools test",
+      "command": "atcoder-tools",
+      "args": ["test"],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": ["cmake build"],
+      "problemMatcher": [],
+      "presentation": {
+        "echo": false,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      }
+    },
+    {
+      "type": "shell",
+      "label": "cmake build",
+      "command": "sed",
+      "args": [
+        "'s/\\//_/g;s/\\.cpp$//'",
+        "<<<",
+        "'${relativeFile}'",
+        "|",
+        "xargs",
+        "cmake",
+        "--build",
+        "build",
+        "--target"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "group": "build",
+      "problemMatcher": "$gcc",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    },
+    {
+      "type": "shell",
+      "label": "clang++ build active file",
+      "command": "ccache",
+      "args": [
+        "clang++",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/a.out",
+        "-I/usr/local/opt/llvm/include",
+        "-Wall",
+        "-pedantic-errors",
+        "-std=c++14",
+        "-fsanitize=undefined",
+        "-Wno-deprecated",
+        "-Wno-unneeded-internal-declaration"
+      ],
+      "options": {
+        "cwd": "${fileDirname}",
+        "env": {
+          "CCACHE_COMPILER": "/usr/local/opt/llvm/bin/clang++"
+        }
+      },
+      "problemMatcher": "$gcc",
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    },
     {
       "type": "shell",
       "label": "g++ build active file",
@@ -22,49 +117,24 @@
           "-o",
           "${fileDirname}/a.out",
           "-I/usr/local/include",
-          "-std=c++14",
-          "-Wall"
+          "-Wall",
+          "-pedantic-errors",
+          "-std=c++14"
         ]
       },
       "options": {
         "cwd": "${fileDirname}"
       },
       "problemMatcher": "$gcc",
-      "group": "build"
-    },
-    {
-      "type": "shell",
-      "label": "clang++ build active file",
-      "command": "ccache",
-      "args": [
-        "clang++",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}/a.out",
-        "-std=c++14",
-        "-Wall"
-      ],
-      "options": {
-        "cwd": "${fileDirname}"
-      },
-      "problemMatcher": "$gcc",
-      "group": "build"
-    },
-    {
-      "type": "shell",
-      "label": "atcoder-tools test",
-      "command": "atcoder-tools",
-      "args": ["test"],
-      "options": {
-        "cwd": "${fileDirname}"
-      },
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "dependsOn": ["clang++ build active file"],
-      "problemMatcher": []
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "silent",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
     },
     {
       "type": "shell",
