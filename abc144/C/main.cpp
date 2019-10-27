@@ -9,35 +9,11 @@ template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } retu
 // clang-format on
 
 void solve(long long N) {
-  ll a = 2;
-  ll n = N;
-  ll p = 1;
-  vector<ll> primes;
-  while (N >= a * a) {
-    if (n % a == 0) {
-      // primes.push_back(a);
-      p *= a;
-      n /= a;
-      if (p >= n)
-        break;
-    } else {
-      a++;
-    }
-  }
-  cout << p + n - 2 << endl;
-  // if (n > 1)
-  //   primes.push_back(n);
-  // n = N;
-  // a = 1;
-  // for (auto i : primes) {
-  //   if ((a * i + (n / i) - 2) < a + n - 2) {
-  //     a *= i;
-  //     n /= i;
-  //   } else
-  //     break;
-  // }
-  // cout << a + n - 2 << endl;
-  // return accumulate(all(primes), 0);
+  ll a = 1e17;
+  for (ll i = 1; i <= sqrt(N) + 1; i++)
+    if (N % i == 0 && i + N / i - 2 <= a)
+      a = i + N / i - 2;
+  cout << a << endl;
 }
 
 int main() {
