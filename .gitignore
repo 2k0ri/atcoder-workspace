@@ -90,8 +90,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-build/*
-!build/.gitkeep
 ### https://raw.github.com/github/gitignore/21419e391a78f2487340b3b1240b988aaf15b54f/Global/JetBrains.gitignore
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
@@ -132,6 +130,7 @@ build/*
 
 # CMake
 cmake-build-*/
+!cmake-build-*/.gitkeep
 
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
@@ -162,5 +161,4 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
-
 

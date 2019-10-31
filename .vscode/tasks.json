@@ -44,7 +44,7 @@
         "xargs",
         "cmake",
         "--build",
-        "build",
+        "cmake-build-debug",
         "--target"
       ],
       "options": {
@@ -172,7 +172,7 @@
       "command": "cmake",
       "args": ["-DCMAKE_EXPORT_COMPILE_COMMANDS=ON", ".."],
       "options": {
-        "cwd": "${workspaceFolder}/build"
+        "cwd": "${workspaceFolder}/cmake-build-debug"
       },
       "group": "none",
       "problemMatcher": [],

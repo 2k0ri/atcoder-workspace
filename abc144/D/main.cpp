@@ -9,7 +9,9 @@ template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } retu
 // clang-format on
 
 void solve(long long a, long long b, long long x){
-  
+  long double h = (long double)x / (a*a);
+  long double theta_rad =  atan(((long double)b-h)/a);
+  long double theta_deg = (theta_rad/ 2 / M_PI) * 180;
 }
 
 int main(){

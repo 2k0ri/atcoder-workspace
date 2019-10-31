@@ -14,7 +14,7 @@
         "-Wno-deprecated",
         "-Wno-unneeded-internal-declaration"
       ],
-      "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+      "compileCommands": "${workspaceFolder}/cmake-build-debug/compile_commands.json",
       "browse": {
         "limitSymbolsToIncludedHeaders": true
       }
