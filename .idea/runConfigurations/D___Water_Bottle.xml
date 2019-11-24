@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="D - Water Bottle" type="name.admitriev.jhelper.configuration.TaskConfigurationType" factoryName="Task" className="DWaterBottle" cppPath="tasks/DWaterBottle.cpp" inputType="STANDARD" outputType="STANDARD" testType="SINGLE">
+    <tests>
+      <test input="2 2 4&#10;" output="45.0000000000&#10;" active="true" />
+      <test input="12 21 10&#10;" output="89.7834636934&#10;" active="true" />
+      <test input="3 1 8&#10;" output="4.2363947991&#10;" active="true" />
+    </tests>
+    <method v="2" />
+  </configuration>
+</component>

@@ -140,7 +140,7 @@
       "type": "shell",
       "label": "atcoder-tools submit",
       "command": "atcoder-tools",
-      "args": ["submit", "-u"],
+      "args": ["submit", "-f", "-u"],
       "options": {
         "cwd": "${fileDirname}"
       },
@@ -155,7 +155,7 @@
         "gen",
         "${input:contest_id};",
         "cd",
-        "build;",
+        "cmake-build-debug;",
         "cmake",
         "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
         ".."

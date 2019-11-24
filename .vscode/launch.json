@@ -26,13 +26,35 @@
       "preLaunchTask": "g++ build active file"
     },
     {
-      "name": "(lldb) Launch",
+      "name": "1.txt",
       "type": "lldb",
       "request": "launch",
       "program": "${fileDirname}/a.out",
       "args": [],
       "cwd": "${fileDirname}",
       "stdio": ["${fileDirname}/in_1.txt", null, null],
+      "terminal": "integrated",
+      "preLaunchTask": "cmake build"
+    },
+    {
+      "name": "2.txt",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "stdio": ["${fileDirname}/in_2.txt", null, null],
+      "terminal": "integrated",
+      "preLaunchTask": "cmake build"
+    },
+    {
+      "name": "3.txt",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "stdio": ["${fileDirname}/in_3.txt", null, null],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
     }

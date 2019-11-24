@@ -8,19 +8,20 @@ template<class T>bool chmax(T &a, const T &b) { if (a<b) { a=b; return 1; } retu
 template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } return 0; }
 // clang-format on
 
-void solve(long long a, long long b, long long x){
-  long double h = (long double)x / (a*a);
-  long double theta_rad =  atan(((long double)b-h)/a);
-  long double theta_deg = (theta_rad/ 2 / M_PI) * 180;
+void solve(long long a, long long b, long long x) {
+  long double h = (long double)x / (a * a);
+  long double theta_rad = atan(((long double)b - h) / a);
+  long double theta_deg = (theta_rad / M_PI) * 180;
+  cout << theta_deg << endl;
 }
 
-int main(){
+int main() {
   long long a;
-  scanf("%lld",&a);
+  scanf("%lld", &a);
   long long b;
-  scanf("%lld",&b);
+  scanf("%lld", &b);
   long long x;
-  scanf("%lld",&x);
+  scanf("%lld", &x);
   solve(a, b, x);
   return 0;
 }
