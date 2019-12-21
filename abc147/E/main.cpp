@@ -13,29 +13,30 @@ using ll = long long;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 const int INF = 1e9;
+const int MOD = 1e9+7;
 const ll LINF = 1e18;
 // clang-format on
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long H, long long W, std::vector<std::vector<long long>> A, std::vector<std::vector<long long>> B){
 }
-{% endif %}
 
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long H;
+  scanf("%lld",&H);
+  long long W;
+  scanf("%lld",&W);
+  std::vector<std::vector<long long>> A(H, std::vector<long long>(W));
+  for(int i = 0 ; i < H ; i++){
+    for(int j = 0 ; j < W ; j++){
+      scanf("%lld",&A[i][j]);
+    }
+  }
+  std::vector<std::vector<long long>> B(H, std::vector<long long>(W));
+  for(int i = 0 ; i < H ; i++){
+    for(int j = 0 ; j < W ; j++){
+      scanf("%lld",&B[i][j]);
+    }
+  }
+  solve(H, W, std::move(A), std::move(B));
   return 0;
 }

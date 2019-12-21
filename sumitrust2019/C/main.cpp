@@ -13,29 +13,23 @@ using ll = long long;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 const int INF = 1e9;
+const int MOD = 1e9+7;
 const ll LINF = 1e18;
 // clang-format on
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long X) {
+  ll minnum = X / 100;
+  // ll maxnum = X / 105;
+  ll minmod = X % 100;
+  // ll maxmod = X % 105;
+
+  cout << ((long double)minmod / minnum <= 5.0 ? 1 : 0) << endl;
+  return;
 }
-{% endif %}
 
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long X;
+  scanf("%lld", &X);
+  solve(X);
   return 0;
 }

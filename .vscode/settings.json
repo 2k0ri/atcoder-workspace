@@ -82,5 +82,6 @@
     "__split_buffer": "cpp",
     "__config": "cpp",
     "ios": "cpp"
-  }
+  },
+  "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug"
 }

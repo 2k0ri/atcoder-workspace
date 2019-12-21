@@ -12,30 +12,40 @@ using ll = long long;
 #define coutl cout<<fixed<<setprecision(10)
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-const int INF = 1e9;
+const int INF = 1e9;]
+const int MOD = 1e9+7;
 const ll LINF = 1e18;
 // clang-format on
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+ll price(ll A, ll B, ll N) { return A * N + B * to_string(N).length(); }
+
+void solve(long long A, long long B, long long X) {
+  ll ans = 0;
+  if (A + B > X) {
+    cout << 0 << endl;
+    return;
+  }
+  if (A * 1e9 + B * 10 <= X) {
+    cout << 1e9 << endl;
+  }
+  rep1(d, 9) {
+    ll dn = (ll)(powl(10, d) - 1);
+    if (A * dn + B * d < X) {
+      continue;
+    }
+    rep(i, 9) {}
+  }
+
+  cout << ans << endl;
 }
-{% endif %}
 
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long A;
+  scanf("%lld", &A);
+  long long B;
+  scanf("%lld", &B);
+  long long X;
+  scanf("%lld", &X);
+  solve(A, B, X);
   return 0;
 }
