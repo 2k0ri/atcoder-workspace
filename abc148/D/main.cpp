@@ -19,25 +19,16 @@ const ll LINF = 1e18;
 
 void solve(long long N, std::vector<long long> a) {
   ll ans = 0;
-  for (ll I = 1;; I += 1) {
-    // rep1(I, N) {
-    auto it = find(a.begin() + I - 1, a.end(), I);
-    auto idx = distance(a.begin(), it);
-    if (it == a.end()) {
-      if (I > 1) {
-        if (I - 1 < a.size()) {
-          ans += a.size() - (I - 1);
-        }
-        ANS(ans);
-      } else {
-        ANS(-1);
-      }
-      return;
+  ll I = 1;
+  rep(i, N) {
+    if (a[i] != I) {
+      ans++;
+    } else {
+      I++;
     }
-    ll brk = idx - (I - 1);
-    ans += brk;
-    a.erase(a.begin() + (I - 1), a.begin() + (I - 1) + brk);
   }
+  if (ans == N)
+    ANS(-1) else ANS(ans);
 }
 
 int main() {
