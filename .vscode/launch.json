@@ -57,6 +57,28 @@
       "stdio": ["${fileDirname}/in_3.txt", null, null],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
+    },
+    {
+      "name": "4.txt",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "stdio": ["${fileDirname}/in_4.txt", null, null],
+      "terminal": "integrated",
+      "preLaunchTask": "cmake build"
+    },
+    {
+      "name": "5.txt",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "args": [],
+      "cwd": "${fileDirname}",
+      "stdio": ["${fileDirname}/in_5.txt", null, null],
+      "terminal": "integrated",
+      "preLaunchTask": "cmake build"
     }
   ]
 }
