@@ -10,33 +10,40 @@ using ll = long long;
 #define pb push_back
 #define mp make_pair
 #define coutl cout<<fixed<<setprecision(10)
-#define ANS(ans) cout<<ans<<endl;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 const int INF = 1e9;
 const ll LINF = 1e18;
+#define ANS(ans) cout<<ans<<endl;
 // clang-format on
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+struct restaurant {
+  ll id;
+  string venue;
+  ll score;
+};
+
+void solve(long long N, std::vector<std::string> S, std::vector<long long> P) {
+  vector<restaurant> r(N);
+  rep(i, N) { r[i] = {i + 1, S[i], P[i]}; }
+  sort(all(r), [](auto const &l, auto const &r) {
+    if (l.venue == r.venue)
+      return l.score > r.score;
+    else
+      return l.venue < r.venue;
+  });
+  rep(i, N) { ANS(r[i].id); }
 }
-{% endif %}
 
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld", &N);
+  std::vector<std::string> S(N);
+  std::vector<long long> P(N);
+  for (int i = 0; i < N; i++) {
+    std::cin >> S[i];
+    scanf("%lld", &P[i]);
+  }
+  solve(N, std::move(S), std::move(P));
   return 0;
 }

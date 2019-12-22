@@ -10,33 +10,32 @@ using ll = long long;
 #define pb push_back
 #define mp make_pair
 #define coutl cout<<fixed<<setprecision(10)
-#define ANS(ans) cout<<ans<<endl;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 const int INF = 1e9;
 const ll LINF = 1e18;
 // clang-format on
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N, long long Q, std::vector<long long> S, std::vector<long long> T, std::vector<long long> X, std::vector<long long> D){
 }
-{% endif %}
 
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  long long Q;
+  scanf("%lld",&Q);
+  std::vector<long long> S(N);
+  std::vector<long long> T(N);
+  std::vector<long long> X(N);
+  for(int i = 0 ; i < N ; i++){
+    scanf("%lld",&S[i]);
+    scanf("%lld",&T[i]);
+    scanf("%lld",&X[i]);
+  }
+  std::vector<long long> D(Q);
+  for(int i = 0 ; i < Q ; i++){
+    scanf("%lld",&D[i]);
+  }
+  solve(N, Q, std::move(S), std::move(T), std::move(X), std::move(D));
   return 0;
 }
