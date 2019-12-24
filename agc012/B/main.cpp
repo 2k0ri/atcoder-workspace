@@ -9,8 +9,6 @@ using ll = long long;
 #define rrep(i,n) for(ll i=n-1; i>=0; --i)
 #define rrep1(i,n) for(ll i=n; i>0; --i)
 #define all(x) (x).begin(),(x).end()
-#define SORT(x) sort(all(x))
-#define SORT_DESC(x) sort(all(x), greater<>())
 #define pb push_back
 #define mp make_pair
 #define coutl cout<<fixed<<setprecision(10)
@@ -20,27 +18,31 @@ template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 const int INF = 1e9;
 const ll LINF = 1e18;
 // clang-format on
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N, long long M, std::vector<long long> a, std::vector<long long> b, long long Q, std::vector<long long> v, std::vector<long long> d, std::vector<long long> c){
 }
-{% endif %}
 
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  long long M;
+  scanf("%lld",&M);
+  std::vector<long long> a(M);
+  std::vector<long long> b(M);
+  for(int i = 0 ; i < M ; i++){
+    scanf("%lld",&a[i]);
+    scanf("%lld",&b[i]);
+  }
+  long long Q;
+  scanf("%lld",&Q);
+  std::vector<long long> v(Q);
+  std::vector<long long> d(Q);
+  std::vector<long long> c(Q);
+  for(int i = 0 ; i < Q ; i++){
+    scanf("%lld",&v[i]);
+    scanf("%lld",&d[i]);
+    scanf("%lld",&c[i]);
+  }
+  solve(N, M, std::move(a), std::move(b), Q, std::move(v), std::move(d), std::move(c));
   return 0;
 }

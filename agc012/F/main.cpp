@@ -9,8 +9,6 @@ using ll = long long;
 #define rrep(i,n) for(ll i=n-1; i>=0; --i)
 #define rrep1(i,n) for(ll i=n; i>0; --i)
 #define all(x) (x).begin(),(x).end()
-#define SORT(x) sort(all(x))
-#define SORT_DESC(x) sort(all(x), greater<>())
 #define pb push_back
 #define mp make_pair
 #define coutl cout<<fixed<<setprecision(10)
@@ -20,27 +18,18 @@ template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 const int INF = 1e9;
 const ll LINF = 1e18;
 // clang-format on
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
+const long long MOD = 1000000007;
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N, std::vector<long long> a){
 }
-{% endif %}
 
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  std::vector<long long> a(2*N-1);
+  for(int i = 0 ; i < 2*N-1 ; i++){
+    scanf("%lld",&a[i]);
+  }
+  solve(N, std::move(a));
   return 0;
 }
