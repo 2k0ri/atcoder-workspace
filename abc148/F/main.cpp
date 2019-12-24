@@ -18,6 +18,7 @@ const ll LINF = 1e18;
 // clang-format on
 
 void solve(long long N, long long u, long long v, std::vector<long long> A, std::vector<long long> B){
+  
 }
 
 int main() {

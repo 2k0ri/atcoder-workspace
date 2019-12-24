@@ -7,7 +7,7 @@
 		"--security-opt",
 		"seccomp=unconfined",
 		"-v",
-		"${env:HOME}/.local/share/atcoder-tools:/root/.local/share/atcoder-tools"
+		"${env:HOME}/.local/share/codeforces-tools:/root/.local/share/codeforces-tools"
 	],
 	// Uncomment the next line if you want to publish any ports.
 	// "appPort": [],

@@ -22,9 +22,11 @@ void solve(long long N) {
     ANS(0);
     return;
   }
-  rep(i, N) {
-    
+  ll ans = 0;
+  for (ll b = 10; b <= N; b *= 5) {
+    ans += N / b;
   }
+  ANS(ans);
 }
 
 int main() {
