@@ -6,13 +6,21 @@ using ll = long long;
 #define all(x) (x).begin(),(x).end()
 template<class T>bool chmax(T &a, const T &b) { if (a<b) { a=b; return 1; } return 0; }
 template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } return 0; }
+#define coutl cout<<fixed<<setprecision(10)
 // clang-format on
 
 void solve(long long a, long long b, long long x) {
-  long double h = (long double)x / (a * a);
-  long double theta_rad = atan(((long double)b - h) / a);
-  long double theta_deg = (theta_rad / M_PI) * 180;
-  cout << theta_deg << endl;
+  long double S = (long double)x / a;
+  long double rad;
+  if (S >= (long double)a * b / 2) {
+    long double h = ((long double)a * b - S) * 2 / a;
+    rad = atan2(h, a);
+  } else {
+    long double w = S * 2 / b;
+    rad = atan2(b, w);
+  }
+  long double deg = rad / 2 / acos(-1) * 360;
+  coutl << deg << endl;
 }
 
 int main() {
