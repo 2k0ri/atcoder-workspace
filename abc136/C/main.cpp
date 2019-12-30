@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-using ll = long long;
 // clang-format off
 #pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
@@ -23,42 +20,29 @@ template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 const int INF = 1e9;
 const ll LINF = 1e18;
 // clang-format on
+const string YES = "Yes";
+const string NO = "No";
 
-void solve(long long N, long long K, std::vector<long long> A, std::vector<long long> F) {
-  SORT(A);
-  SORT_DESC(F);
-  ll l = -1, r = LINF;
-  while (l + 1 < r) {
-    ll c = (l + r) / 2;
-    bool ok = [&] {
-      ll s = 0;
-      rep(i, N) {
-        s += max(0ll, A[i] - c / F[i]);
-      }
-      return s <= K;
-    }();
-
-    if (ok)
-      r = c;
-    else
-      l = c;
+void solve(long long N, std::vector<long long> H) {
+  ll min = 0;
+  rep(i, N) {
+    if (min < H[i] - 1) {
+      min = H[i] - 1;
+    } else if (H[i] < min) {
+      ANS(NO);
+      return;
+    }
   }
-  ANS(r);
+  ANS(YES);
 }
 
 int main() {
   long long N;
   scanf("%lld", &N);
-  long long K;
-  scanf("%lld", &K);
-  std::vector<long long> A(N);
+  std::vector<long long> H(N);
   for (int i = 0; i < N; i++) {
-    scanf("%lld", &A[i]);
+    scanf("%lld", &H[i]);
   }
-  std::vector<long long> F(N);
-  for (int i = 0; i < N; i++) {
-    scanf("%lld", &F[i]);
-  }
-  solve(N, K, std::move(A), std::move(F));
+  solve(N, std::move(H));
   return 0;
 }

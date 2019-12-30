@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-using ll = long long;
 // clang-format off
 #pragma GCC optimize("Ofast")
 #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
@@ -24,41 +21,35 @@ const int INF = 1e9;
 const ll LINF = 1e18;
 // clang-format on
 
-void solve(long long N, long long K, std::vector<long long> A, std::vector<long long> F) {
-  SORT(A);
-  SORT_DESC(F);
-  ll l = -1, r = LINF;
-  while (l + 1 < r) {
-    ll c = (l + r) / 2;
-    bool ok = [&] {
-      ll s = 0;
-      rep(i, N) {
-        s += max(0ll, A[i] - c / F[i]);
-      }
-      return s <= K;
-    }();
+bool isPrime(ll i) {
+  if (i < 2)
+    return false;
+  else if (i == 2) {
+    return true;
+  } else if (i % 2 == 0)
+    return false;
 
-    if (ok)
-      r = c;
-    else
-      l = c;
+  double sq = sqrt(i);
+  for (ll j = 3; j <= sq; j += 2) {
+    if (i % j == 0) {
+      return false;
+    }
   }
-  ANS(r);
+  return true;
+}
+
+void solve(long long X) {
+  for (ll i = X; i <= 1e6; i++) {
+    if (isPrime(i)) {
+      ANS(i);
+      return;
+    }
+  }
 }
 
 int main() {
-  long long N;
-  scanf("%lld", &N);
-  long long K;
-  scanf("%lld", &K);
-  std::vector<long long> A(N);
-  for (int i = 0; i < N; i++) {
-    scanf("%lld", &A[i]);
-  }
-  std::vector<long long> F(N);
-  for (int i = 0; i < N; i++) {
-    scanf("%lld", &F[i]);
-  }
-  solve(N, K, std::move(A), std::move(F));
+  long long X;
+  scanf("%lld", &X);
+  solve(X);
   return 0;
 }
