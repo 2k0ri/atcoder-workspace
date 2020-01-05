@@ -23,7 +23,7 @@ const ll LINF = 1e18;
 
 void solve(long long N, long long K, long long R, long long S, long long P, std::string T) {
   ll ans = 0;
-  auto win = [=](char c) {
+  auto win = [&](char c) -> ll {
     switch (c) {
     case 'r':
       return P;

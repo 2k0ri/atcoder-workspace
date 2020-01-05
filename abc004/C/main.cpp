@@ -19,29 +19,23 @@ typedef long long ll;
 #define LINF 1e18;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
+const long long MOD = 5;
 // clang-format on
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N) {
+  ll m = N % 30;
+  string S = "123456";
+  rep(i, m) {
+    ll j = i % 5;
+    swap(S[j], S[j + 1]);
+  }
+  ANS(S);
 }
-{% endif %}
 
 // clang-format off
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  solve(N);
   return 0;
 }

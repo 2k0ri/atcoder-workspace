@@ -17,22 +17,25 @@ using ll = long long;
 #define ANS(ans) cout<<ans<<endl;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-const int INF = 1e9;
-const ll LINF = 1e18;
+#define INF 1e9;
+#define LINF 1e18;
 // clang-format on
 
-void solve(long long N, long long M, std::vector<long long> A){
-  
+void solve(long long N, long long M, std::vector<long long> A) {
+  SORT_DESC(A);
+  rep(i, M) {
+    
+  }
 }
 
 int main() {
   long long N;
-  scanf("%lld",&N);
+  scanf("%lld", &N);
   long long M;
-  scanf("%lld",&M);
+  scanf("%lld", &M);
   std::vector<long long> A(N);
-  for(int i = 0 ; i < N ; i++){
-    scanf("%lld",&A[i]);
+  for (int i = 0; i < N; i++) {
+    scanf("%lld", &A[i]);
   }
   solve(N, M, std::move(A));
   return 0;

@@ -19,29 +19,25 @@ typedef long long ll;
 #define LINF 1e18;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 // clang-format on
+#include <boost/algorithm/string/join.hpp>
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(std::vector<std::vector<std::string>> c) {
+  rrep(i, c.size()) {
+    reverse(all(c[i]));
+    string s = boost::algorithm::join(c[i], " ");
+    ANS(s);
+  }
 }
-{% endif %}
 
 // clang-format off
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  std::vector<std::vector<std::string>> c(3-0+1, std::vector<std::string>(3-0+1));
+  for(int i = 0 ; i < 3-0+1 ; i++){
+    for(int j = 0 ; j < 3-0+1 ; j++){
+      std::cin >> c[i][j];
+    }
+  }
+  solve(std::move(c));
   return 0;
 }
