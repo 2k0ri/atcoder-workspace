@@ -19,31 +19,27 @@ typedef long long ll;
 #define LINF 1e18;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
+const string YES = "Yes";
+const string NO = "No";
 // clang-format on
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N, long long Q, std::vector<long long> P, std::vector<long long> A, std::vector<long long> B){
 }
-{% endif %}
 
-{% if prediction_success %}
 // clang-format off
-{% endif %}
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  long long Q;
+  scanf("%lld",&Q);
+  std::vector<long long> P(Q);
+  std::vector<long long> A(Q);
+  std::vector<long long> B(Q);
+  for(int i = 0 ; i < Q ; i++){
+    scanf("%lld",&P[i]);
+    scanf("%lld",&A[i]);
+    scanf("%lld",&B[i]);
+  }
+  solve(N, Q, std::move(P), std::move(A), std::move(B));
   return 0;
 }
