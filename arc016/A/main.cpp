@@ -21,7 +21,8 @@ template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 // clang-format on
 
-void solve(long long N, long long M){
+void solve(long long N, long long M) {
+  ANS((M == N ? N - 1 : N));
 }
 
 // clang-format off

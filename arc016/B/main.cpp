@@ -21,9 +21,22 @@ template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 // clang-format on
 
-
-// clang-format off
 int main() {
-  // Failed to predict input format
+  ll N;
+  scanf("%lld", &N);
+  vector<string> x(N);
+  ll ans = 0;
+  rep(i, N) {
+    cin >> x[i];
+    rep(j, 9) {
+      if (x[i][j] == 'x')
+        ans += 1;
+      if (x[i][j] == 'o') {
+        if (i == 0 || x[i - 1][j] != 'o')
+          ans += 1;
+      }
+    }
+  }
+  ANS(ans);
   return 0;
 }
