@@ -19,31 +19,28 @@ const ll LINF = (1LL << 62) - 1;
 const int INF = (1 << 30) - 1;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 // clang-format on
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N, std::vector<long long> P) {
+  ll ans = 0;
+  ll min = INF;
+  rep(i, N) {
+    if(P[i] <= min) {
+      min = P[i];
+      ++ans;
+    }
+  }
+  ANS(ans);
 }
-{% endif %}
 
-{% if prediction_success %}
 // clang-format off
-{% endif %}
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  std::vector<long long> P(N);
+  for(int i = 0 ; i < N ; i++){
+    scanf("%lld",&P[i]);
+  }
+  solve(N, std::move(P));
   return 0;
 }

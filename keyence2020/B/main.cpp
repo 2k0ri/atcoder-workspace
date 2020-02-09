@@ -19,31 +19,34 @@ const ll LINF = (1LL << 62) - 1;
 const int INF = (1 << 30) - 1;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 // clang-format on
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N, std::vector<long long> X, std::vector<long long> L) {
+  ll ans = N;
+  vector<pair<ll, ll>> x(N);
+  rep(i, N) x[i] = mp(X[i], L[i]);
+  sort(all(x));
+  for (ll i = 1; i < N; ++i) {
+    if (i > ans - 1)
+      break;
+    if (x[i - 1].first + x[i - 1].second > x[i].first - x[i].second) {
+      --ans;
+      x.erase(x.begin() + i);
+    }
+  }
+  ANS(ans);
 }
-{% endif %}
 
-{% if prediction_success %}
 // clang-format off
-{% endif %}
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  std::vector<long long> X(N);
+  std::vector<long long> L(N);
+  for(int i = 0 ; i < N ; i++){
+    scanf("%lld",&X[i]);
+    scanf("%lld",&L[i]);
+  }
+  solve(N, std::move(X), std::move(L));
   return 0;
 }

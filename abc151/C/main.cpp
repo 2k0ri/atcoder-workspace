@@ -15,35 +15,43 @@ typedef long long ll;
 #define mp make_pair
 #define coutl cout<<fixed<<setprecision(10)
 #define ANS(ans) cout<<ans<<endl;
-const ll LINF = (1LL << 62) - 1;
-const int INF = (1 << 30) - 1;
+#define INF 1e9;
+#define LINF 1e18;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 // clang-format on
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N, long long M, std::vector<long long> p, std::vector<std::string> S) {
+  ll ACs = 0;
+  ll WAs = 0;
+  vector<bool> AC(N, false);
+  vector<ll> WA(N);
+  rep(i, M) {
+    if (AC[p[i] - 1])
+      continue;
+    if (S[i] == "WA")
+      WA[p[i] - 1]++;
+    else {
+      AC[p[i] - 1] = true;
+      ACs++;
+      WAs += WA[p[i] - 1];
+    }
+  }
+  ANS(ACs << " " << WAs);
 }
-{% endif %}
 
-{% if prediction_success %}
 // clang-format off
-{% endif %}
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  long long M;
+  scanf("%lld",&M);
+  std::vector<long long> p(M);
+  std::vector<std::string> S(M);
+  for(int i = 0 ; i < M ; i++){
+    scanf("%lld",&p[i]);
+    std::cin >> S[i];
+  }
+  solve(N, M, std::move(p), std::move(S));
   return 0;
 }

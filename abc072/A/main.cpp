@@ -15,35 +15,22 @@ typedef long long ll;
 #define mp make_pair
 #define coutl cout<<fixed<<setprecision(10)
 #define ANS(ans) cout<<ans<<endl;
-const ll LINF = (1LL << 62) - 1;
-const int INF = (1 << 30) - 1;
+#define INF 1e9;
+#define LINF 1e18;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 // clang-format on
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long X, long long t) {
+  ANS(max(X - t, 0LL));
 }
-{% endif %}
 
-{% if prediction_success %}
 // clang-format off
-{% endif %}
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long X;
+  scanf("%lld",&X);
+  long long t;
+  scanf("%lld",&t);
+  solve(X, t);
   return 0;
 }

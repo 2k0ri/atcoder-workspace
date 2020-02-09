@@ -15,35 +15,37 @@ typedef long long ll;
 #define mp make_pair
 #define coutl cout<<fixed<<setprecision(10)
 #define ANS(ans) cout<<ans<<endl;
-const ll LINF = (1LL << 62) - 1;
-const int INF = (1 << 30) - 1;
+#define INF 1e9;
+#define LINF 1e18;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 // clang-format on
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long N, std::vector<long long> x, std::vector<long long> y, std::vector<long long> v, long long M, std::vector<std::string> t, std::vector<long long> a, std::vector<long long> b){
 }
-{% endif %}
 
-{% if prediction_success %}
 // clang-format off
-{% endif %}
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long N;
+  scanf("%lld",&N);
+  std::vector<long long> x(N);
+  std::vector<long long> y(N);
+  std::vector<long long> v(N);
+  for(int i = 0 ; i < N ; i++){
+    scanf("%lld",&x[i]);
+    scanf("%lld",&y[i]);
+    scanf("%lld",&v[i]);
+  }
+  long long M;
+  scanf("%lld",&M);
+  std::vector<std::string> t(M);
+  std::vector<long long> a(M);
+  std::vector<long long> b(M);
+  for(int i = 0 ; i < M ; i++){
+    std::cin >> t[i];
+    scanf("%lld",&a[i]);
+    scanf("%lld",&b[i]);
+  }
+  solve(N, std::move(x), std::move(y), std::move(v), M, std::move(t), std::move(a), std::move(b));
   return 0;
 }
