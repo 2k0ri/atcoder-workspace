@@ -23,26 +23,38 @@ template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 // clang-format on
 
 void solve(long long N, long long X, long long Y) {
-  vector<vector<int>> d(N, vector<int>(N, INF));
+  --X;
+  --Y;
   vector<ll> a(N);
-  rep(i, N) {
-    d[i][i] = 0;
-    if (i < N - 1) {
-      d[i][i + 1] = 1;
-      // d[i + 1][i] = 1;
+  rep(sv, N) {
+    vector<int> dist(N, INF);
+    queue<int> q;
+    auto push = [&](int v, int d) {
+      if (dist[v] != INF)
+        return;
+      dist[v] = d;
+      q.push(v);
+    };
+    push(sv, 0);
+    while (!q.empty()) {
+      int v = q.front();
+      q.pop();
+      int d = dist[v];
+      if (v - 1 >= 0)
+        push(v - 1, d + 1);
+      if (v + 1 < N)
+        push(v + 1, d + 1);
+      if (v == X)
+        push(Y, d + 1);
+      if (v == Y)
+        push(X, d + 1);
     }
+    rep(i, N) a[dist[i]]++;
   }
-  d[X - 1][Y - 1] = 1;
-  // d[Y - 1][X - 1] = 1;
-  rep(k, N) rep(i, N) for (int j = i + 1; j < N; ++j) {
-    d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
-    d[j][i] = d[i][j];
-  }
-  rep(i, N) for (int j = i + 1; j < N; ++j) {
-    ++a[d[i][j]];
-  }
-  for (int i = 1; i < N; ++i)
+  rep(i, N) a[i] /= 2;
+  for (int i = 1; i < N; ++i) {
     ANS(a[i]);
+  }
 }
 
 // clang-format off
