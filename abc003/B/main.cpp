@@ -20,9 +20,24 @@ const int INF = (1 << 30) - 1;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 // clang-format on
+const string YES = "You can win";
+const string NO = "You will lose";
 
-void solve(std::string S, std::string T){
-  
+void solve(std::string S, std::string T) {
+  ll d = 0, sa = 0, ta=0;
+  rep(i, S.size()) {
+    if(S[i] == '@') ++sa;
+    if(T[i] == '@') ++ta;
+    if (S[i] != T[i]) {
+      if ((S[i] == '@' && "atcoder"s.find(T[i]) == string::npos)) --sa;
+      if ((T[i] == '@' && "atcoder"s.find(S[i]) == string::npos)) --ta;
+      } else {
+        ANS(NO);
+        return;
+      }
+    }
+  }
+  ANS((d <= 1 ? YES : NO));
 }
 
 // clang-format off
