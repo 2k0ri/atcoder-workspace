@@ -74,7 +74,7 @@
         "-I/usr/local/opt/llvm/include",
         "-Wall",
         "-pedantic-errors",
-        "-std=c++14",
+        "-std=c++17",
         "-fsanitize=undefined",
         "-Wno-deprecated",
         "-Wno-unneeded-internal-declaration"
@@ -106,7 +106,7 @@
         "${file}",
         "-o",
         "${fileDirname}/a.out",
-        "-std=c++14",
+        "-std=c++17",
         "-Wall"
       ],
       "osx": {
@@ -119,7 +119,7 @@
           "-I/usr/local/include",
           "-Wall",
           "-pedantic-errors",
-          "-std=c++14"
+          "-std=c++17"
         ]
       },
       "options": {
@@ -184,6 +184,13 @@
         "showReuseMessage": false,
         "clear": false
       }
+    },
+    {
+      "type": "hugo",
+      "task": "",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "hugo: Build site"
     }
   ],
   "inputs": [

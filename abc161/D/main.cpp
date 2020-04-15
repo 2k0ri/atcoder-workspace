@@ -1,4 +1,6 @@
 // clang-format off
+#pragma GCC optimize("Ofast")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
@@ -18,31 +20,28 @@ const ll LINF = (1LL << 62) - 1;
 const int INF = (1 << 30) - 1;
 template<class T>bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}return 0;}
 template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 // clang-format on
 
-{% if prediction_success %}
-void solve({{ formal_arguments }}){
+void solve(long long K) {
+  queue<ll> q;
+  rep1(i, 9) q.push(i);
+  ll x;
+  rep(i, K) {
+    x = q.front();
+    q.pop();
+    if (x % 10 != 0)
+      q.push(x * 10 + x % 10 - 1);
+    q.push(x * 10 + x % 10);
+    if (x % 10 != 9)
+      q.push(x * 10 + x % 10 + 1);
+  }
+  ANS(x);
 }
-{% endif %}
 
-{% if prediction_success %}
 // clang-format off
-{% endif %}
 int main() {
-  {% if prediction_success %}
-  {{input_part}}
-  solve({{ actual_arguments }});
-  {% else %}
-  // Failed to predict input format
-  {% endif %}
+  long long K;
+  scanf("%lld",&K);
+  solve(K);
   return 0;
 }
