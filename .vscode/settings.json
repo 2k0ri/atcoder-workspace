@@ -100,5 +100,6 @@
     "queue": "cpp",
     "stack": "cpp"
   },
-  "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug"
+  "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug",
+  "clangd.arguments": ["--clang-tidy"]
 }
