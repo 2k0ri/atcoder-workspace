@@ -184,13 +184,6 @@
         "showReuseMessage": false,
         "clear": false
       }
-    },
-    {
-      "type": "hugo",
-      "task": "",
-      "group": "build",
-      "problemMatcher": [],
-      "label": "hugo: Build site"
     }
   ],
   "inputs": [
