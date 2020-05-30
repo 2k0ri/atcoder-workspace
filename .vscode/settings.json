@@ -101,5 +101,13 @@
     "stack": "cpp"
   },
   "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug",
-  "clangd.arguments": ["--clang-tidy"]
+  "C_Cpp.intelliSenseEngine": "Disabled",
+  "C_Cpp.autocomplete": "Disabled", // So you don't get autocomplete from both extensions.
+  "C_Cpp.errorSquiggles": "Disabled", // So you don't get error squiggles from both extensions (clangd's seem to be more reliable anyway).
+  "clangd.arguments": [
+    "-pretty",
+    "--background-index",
+    "--compile-commands-dir=${workspaceFolder}/cmake-build-debug/",
+    "-clang-tidy"
+  ]
 }

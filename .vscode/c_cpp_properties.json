@@ -2,22 +2,31 @@
   "configurations": [
     {
       "name": "Mac",
-      "includePath": ["${workspaceFolder}/**"],
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/**",
+        "/usr/local/opt/gcc/include/c++/9.3.0/**"
+      ],
       "defines": [],
-      "macFrameworkPath": ["/System/Library/Frameworks", "/Library/Frameworks"],
-      "compilerPath": "/usr/local/opt/llvm/bin/clang++",
+      "compilerPath": "/usr/bin/clang++",
       "cStandard": "c11",
       "cppStandard": "c++17",
+      "compileCommands": "${workspaceFolder}/cmake-build-debug/compile_commands.json",
       "compilerArgs": [
+        "-stdlib=libstdc++",
+        "-std=c++17",
         "-pedantic-errors",
         "-fsanitize=undefined",
         "-Wno-deprecated",
-        "-Wno-unneeded-internal-declaration"
+        "-Wno-unneeded-internal-declaration",
+        "-Wno-unused-variable",
+        "-Wno-sign-conversion"
       ],
-      "compileCommands": "${workspaceFolder}/cmake-build-debug/compile_commands.json",
+      "intelliSenseMode": "clang-x64",
       "browse": {
         "limitSymbolsToIncludedHeaders": true
-      }
+      },
+      "configurationProvider": "ms-vscode.cmake-tools"
     }
   ],
   "version": 4

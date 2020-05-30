@@ -1,0 +1,8 @@
+[codestyle]
+workspace_dir='/Users/k/src/github.com/2k0ri/atcoder-workspace'
+lang='cpp'
+indent_width=2
+template_file='/Users/k/src/github.com/2k0ri/atcoder-workspace/template.cpp.j2'
+
+[etc]
+#parallel_download=true

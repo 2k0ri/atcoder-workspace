@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.15)
 project(atcoder_workspace CXX)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "-g -Wall -pedantic-errors -fsanitize=undefined -Wno-deprecated -Wno-unneeded-internal-declaration")
+set(CMAKE_CXX_FLAGS "-Wall -pedantic-errors -fsanitize=undefined -Wno-deprecated -Wno-unneeded-internal-declaration -Wno-unused-variable -Wno-sign-conversion")
+# set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -Wno-unused-variable -Wcast-align -Wcast-qual -Wconversion -Wdisabled-optimization -Wendif-labels -Wfloat-equal -Winit-self -Winline -Wlogical-op -Wmissing-include-dirs -Wnon-virtual-dtor -Wold-style-cast -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wshadow -Wsign-promo -Wswitch-default -Wswitch-enum -Wunsafe-loop-optimizations -Wvariadic-macros -Wwrite-strings")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2 -s -DNDEBUG -march=native")
+set(CMAKE_CXX_FLAGS_DEBUG "-g3 -O0")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g3 -Og")
+set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -s -DNDEBUG -march=native")
 
 # use ccache
 option(CCACHE_ENABLE "If the command ccache is avilable, use it for compile." ON)
@@ -10,7 +15,8 @@ find_program(CCACHE_EXE ccache)
 if(CCACHE_EXE)
   if(CCACHE_ENABLE)
     message(STATUS "Enable ccache")
-    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_EXE}")
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
   endif()
 endif()
 
