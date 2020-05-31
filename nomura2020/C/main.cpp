@@ -21,17 +21,24 @@ template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 // clang-format on
 
 void solve(long long N, std::vector<long long> A) {
-  if (A[N] % 2 != 0) {
+  ll ans = 0;
+  vector<ll> B(N + 1), s(N + 2);
+  if(A[0]!=0) {
     ANS(-1);
     return;
   }
-  ll ans = 0;
-  vector<ll> c(N);
-  rrep1(i, N) {
-    ans += A[i];
-    c[i - 1] = A[i];
+  B[0] = 1;
+  rep(i, N + 1) s[i + 1] = s[i] + A[i];
+  rep(i, N + 1) {
+    ll u = (B[i] - A[i]) * 2;
+    ll d = s[N + 1] - s[i + 1];
+    B[i + 1] = min(u, d);
+    if (B[i] <= 0) {
+      ANS(-1);
+      return;
+    }
+    ans += B[i];
   }
-  ans += 1;
   ANS(ans);
 }
 

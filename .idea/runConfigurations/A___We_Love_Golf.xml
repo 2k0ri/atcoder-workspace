@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="A - We Love Golf" type="name.admitriev.jhelper.configuration.TaskConfigurationType" factoryName="Task" className="AWeLoveGolf" cppPath="tasks/AWeLoveGolf.cpp" inputType="STANDARD" outputType="STANDARD" testType="SINGLE">
+    <tests>
+      <test input="7&#10;500 600&#10;" output="OK&#10;" active="true" />
+      <test input="4&#10;5 7&#10;" output="NG&#10;" active="true" />
+      <test input="1&#10;11 11&#10;" output="OK&#10;" active="true" />
+    </tests>
+    <method v="2" />
+  </configuration>
+</component>
