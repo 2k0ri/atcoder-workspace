@@ -25,14 +25,14 @@ void solve(long long N, std::vector<long long> A) {
     ANS(0);
     return;
   }
+  ll L = 1e18;
   ll ans = 1;
-  ll L = pow(10, 18);
   rep(i, N) {
-    ans *= A[i];
-    if (ans > L) {
+    if (L / ans < A[i]) {
       ANS(-1);
       return;
     }
+    ans *= A[i];
   }
   ANS(ans);
 }

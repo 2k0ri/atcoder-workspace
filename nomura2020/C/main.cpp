@@ -23,7 +23,11 @@ template<class T>bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 void solve(long long N, std::vector<long long> A) {
   ll ans = 0;
   vector<ll> B(N + 1), s(N + 2);
-  if(A[0]!=0) {
+  if (N == 0) {
+    ANS((A[0] == 1 ? 1 : -1));
+    return;
+  }
+  if (A[0] != 0) {
     ANS(-1);
     return;
   }
