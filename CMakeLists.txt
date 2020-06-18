@@ -9,6 +9,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g3 -O0")
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-g3 -Og")
 set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -s -DNDEBUG -march=native")
 
+set(BOOST_INCLUDE_PATH /usr/local/opt/boost/include)
+set(BOOST_LIBRARY_PATH /usr/local/opt/boost/lib)
+set(BOOST_LIBS "-lboost_filesystem -lboost_system")
+
 # use ccache
 option(CCACHE_ENABLE "If the command ccache is avilable, use it for compile." ON)
 find_program(CCACHE_EXE ccache)
