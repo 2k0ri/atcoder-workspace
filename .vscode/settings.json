@@ -110,5 +110,5 @@
     "--compile-commands-dir=${workspaceFolder}/cmake-build-debug/",
     "-clang-tidy"
   ],
-  "cmake.configureOnOpen": true
+  "cmake.configureOnOpen": false
 }

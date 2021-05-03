@@ -2,7 +2,8 @@ BasedOnStyle: LLVM
 IndentWidth: 2
 ColumnLimit: 120
 SpacesBeforeTrailingComments: 2
-AllowShortBlocksOnASingleLine: Empty
+AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Empty
-AllowShortIfStatementsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
