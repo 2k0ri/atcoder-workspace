@@ -6,21 +6,24 @@
 		"--cap-add=SYS_PTRACE",
 		"--security-opt",
 		"seccomp=unconfined",
-		"-v",
-		"${env:HOME}/.local/share/codeforces-tools:/root/.local/share/codeforces-tools"
 	],
 	// Uncomment the next line if you want to publish any ports.
 	// "appPort": [],
 	// Uncomment the next line if you want to add in default container specific settings.json values
 	// "settings":  { "workbench.colorTheme": "Quiet Light" },
 	// Uncomment the next line to run commands after the container is created.
-	// "postCreateCommand": "gcc -v",
+	"mounts": [
+		"source=${localWorkspaceFolder}/.devcontainer/.local/share/atcoder-tools,target=/root/.local/share/atcoder-tools,type=bind,consistency=cached"
+	],
+	"postCreateCommand": "ln -sv ${containerWorkspaceFolder}/.atcodertools.toml ~/.atcodertools.toml",
 	"extensions": [
 		"ms-vscode.cpptools",
 		"mitaki28.vscode-clang",
 		"austin.code-gnu-global",
 		"jeff-hykin.better-cpp-syntax",
 		"xaver.clang-format",
-		"webfreak.debug"
+		"webfreak.debug",
+		"ms-vscode.cmake-tools",
+		"vadimcn.vscode-lldb"
 	]
 }

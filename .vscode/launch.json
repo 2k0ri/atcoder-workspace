@@ -5,11 +5,14 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "(gdb) Launch",
+      "name": "1.txt (gdb)",
       "type": "cppdbg",
       "request": "launch",
       "program": "${fileDirname}/a.out",
-      "args": ["<", "${fileDirname}/in_1.txt"],
+      "args": [
+        "<",
+        "${fileDirname}/in_1.txt"
+      ],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
       "environment": [],
@@ -23,16 +26,45 @@
           "ignoreFailures": true
         }
       ],
-      "preLaunchTask": "g++ build active file"
+      "preLaunchTask": "cmake build"
     },
     {
-      "name": "1.txt",
+      "name": "1.txt (lldb-mi)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/a.out",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "miDebuggerPath": "lldb-mi",
+      "setupCommands": [
+        {
+          "description": "input",
+          "text": "settings set target.input-path ${fileDirname}/in_1.txt"
+        },
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+      ],
+      "preLaunchTask": "cmake build"
+    },
+    {
+      "name": "1.txt (lldb)",
       "type": "lldb",
       "request": "launch",
       "program": "${fileDirname}/a.out",
       "args": [],
       "cwd": "${fileDirname}",
-      "stdio": ["${fileDirname}/in_1.txt", null, null],
+      "stdio": [
+        "${fileDirname}/in_1.txt",
+        null,
+        null
+      ],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
     },
@@ -43,7 +75,11 @@
       "program": "${fileDirname}/a.out",
       "args": [],
       "cwd": "${fileDirname}",
-      "stdio": ["${fileDirname}/in_2.txt", null, null],
+      "stdio": [
+        "${fileDirname}/in_2.txt",
+        null,
+        null
+      ],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
     },
@@ -54,7 +90,11 @@
       "program": "${fileDirname}/a.out",
       "args": [],
       "cwd": "${fileDirname}",
-      "stdio": ["${fileDirname}/in_3.txt", null, null],
+      "stdio": [
+        "${fileDirname}/in_3.txt",
+        null,
+        null
+      ],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
     },
@@ -65,7 +105,11 @@
       "program": "${fileDirname}/a.out",
       "args": [],
       "cwd": "${fileDirname}",
-      "stdio": ["${fileDirname}/in_4.txt", null, null],
+      "stdio": [
+        "${fileDirname}/in_4.txt",
+        null,
+        null
+      ],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
     },
@@ -76,7 +120,11 @@
       "program": "${fileDirname}/a.out",
       "args": [],
       "cwd": "${fileDirname}",
-      "stdio": ["${fileDirname}/in_5.txt", null, null],
+      "stdio": [
+        "${fileDirname}/in_5.txt",
+        null,
+        null
+      ],
       "terminal": "integrated",
       "preLaunchTask": "cmake build"
     }
