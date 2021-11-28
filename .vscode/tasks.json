@@ -13,7 +13,9 @@
       "type": "shell",
       "label": "atcoder-tools test",
       "command": "atcoder-tools",
-      "args": ["test"],
+      "args": [
+        "test"
+      ],
       "options": {
         "cwd": "${fileDirname}"
       },
@@ -21,7 +23,9 @@
         "kind": "build",
         "isDefault": true
       },
-      "dependsOn": ["cmake build"],
+      "dependsOn": [
+        "cmake build"
+      ],
       "problemMatcher": [],
       "presentation": {
         "echo": false,
@@ -140,7 +144,11 @@
       "type": "shell",
       "label": "atcoder-tools submit",
       "command": "atcoder-tools",
-      "args": ["submit", "-f", "-u"],
+      "args": [
+        "submit",
+        "-f",
+        "-u"
+      ],
       "options": {
         "cwd": "${fileDirname}"
       },
@@ -170,7 +178,10 @@
       "type": "shell",
       "label": "cmake rebuild cache",
       "command": "cmake",
-      "args": ["-DCMAKE_EXPORT_COMPILE_COMMANDS=ON", ".."],
+      "args": [
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        ".."
+      ],
       "options": {
         "cwd": "${workspaceFolder}/cmake-build-debug"
       },

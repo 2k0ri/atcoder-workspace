@@ -98,7 +98,8 @@
     "__tuple": "cpp",
     "locale": "cpp",
     "queue": "cpp",
-    "stack": "cpp"
+    "stack": "cpp",
+    "all": "cpp"
   },
   "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug",
   "C_Cpp.intelliSenseEngine": "Default",

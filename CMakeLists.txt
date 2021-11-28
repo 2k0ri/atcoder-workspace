@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 project(atcoder_workspace CXX)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS "-Wall -std=c++17 -pedantic-errors -fsanitize=undefined -Wno-deprecated -Wno-unneeded-internal-declaration -Wno-unused-variable -Wno-sign-conversion")
+set(CMAKE_CXX_FLAGS "-Wall -std=c++17 -fsanitize=undefined -Wno-deprecated -Wno-unused-variable -Wno-sign-conversion")
 # set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -Wno-unused-variable -Wcast-align -Wcast-qual -Wconversion -Wdisabled-optimization -Wendif-labels -Wfloat-equal -Winit-self -Winline -Wlogical-op -Wmissing-include-dirs -Wnon-virtual-dtor -Wold-style-cast -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wshadow -Wsign-promo -Wswitch-default -Wswitch-enum -Wunsafe-loop-optimizations -Wvariadic-macros -Wwrite-strings")
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -s -DNDEBUG -march=native")
 set(CMAKE_CXX_FLAGS_DEBUG "-g3 -O0")
@@ -12,6 +12,7 @@ set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -s -DNDEBUG -march=native")
 set(BOOST_INCLUDE_PATH /usr/local/opt/boost/include)
 set(BOOST_LIBRARY_PATH /usr/local/opt/boost/lib)
 set(BOOST_LIBS "-lboost_filesystem -lboost_system")
+include_directories(ac-library)
 
 # use ccache
 option(CCACHE_ENABLE "If the command ccache is avilable, use it for compile." ON)

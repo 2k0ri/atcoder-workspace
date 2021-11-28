@@ -4,6 +4,7 @@
       "name": "Mac",
       "includePath": [
         "${workspaceFolder}/**",
+        "${workspaceFolder}/ac-library/",
         "/usr/local/opt/boost/include/boost",
         "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/**",
         "/usr/local/opt/gcc/include/c++/9.3.0/**"
@@ -16,10 +17,8 @@
       "compilerArgs": [
         "-stdlib=libstdc++",
         "-std=c++17",
-        "-pedantic-errors",
         "-fsanitize=undefined",
         "-Wno-deprecated",
-        "-Wno-unneeded-internal-declaration",
         "-Wno-unused-variable",
         "-Wno-sign-conversion"
       ],
