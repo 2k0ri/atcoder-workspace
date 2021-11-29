@@ -111,5 +111,15 @@
     "--compile-commands-dir=${workspaceFolder}/cmake-build-debug/",
     "-clang-tidy"
   ],
-  "cmake.configureOnOpen": false
+  "cmake.configureOnOpen": false,
+  "cmake.debugConfig": {
+    "stopAtEntry": false,
+    "MIMode": "lldb",
+    "miDebuggerPath": "/usr/bin/lldb-mi",
+    "logging": {
+      "trace": true,
+      "engineLogging": true,
+      "traceResponse": true
+    }
+  }
 }
