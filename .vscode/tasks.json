@@ -195,6 +195,30 @@
                 "showReuseMessage": false,
                 "clear": false
             }
+        },
+        {
+            "type": "shell",
+            "label": "cmake clean",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "cmake-build-debug",
+                "--target",
+                "clean"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "none",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
         }
     ],
     "inputs": [

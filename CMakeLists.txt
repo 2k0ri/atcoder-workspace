@@ -16,7 +16,7 @@ include_directories(${PROJECT_SOURCE_DIR}/ac-library)
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cotire/CMake)
 include(cotire)
-set_directory_properties(PROPERTIES COTIRE_PREFIX_HEADER_INCLUDE_PATH ${PROJECT_SOURCE_DIR}/ac-library/atcoder)
+set_directory_properties(PROPERTIES COTIRE_PREFIX_HEADER_INCLUDE_PATH ${PROJECT_SOURCE_DIR}/ac-library)
 
 # use ccache
 option(CCACHE_ENABLE "If the command ccache is avilable, use it for compile." ON)
