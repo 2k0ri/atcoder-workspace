@@ -1,6 +1,7 @@
 // clang-format off
 #pragma GCC optimize("Ofast")
 #include <bits/stdc++.h>
+#include <atcoder/all>
 using namespace std;
 using ll = long long;
 using P = pair<ll, ll>;
@@ -14,6 +15,7 @@ using G = vector<vector<ll>>;
 #define all(x) (x).begin(),(x).end()
 #define SORT(x) sort(all(x))
 #define SORT_DESC(x) sort((x).rbegin(),(x).rend())
+#define UNIQUE(x) x.erase(unique(all(x)), x.end())
 #define pb push_back
 #define mp make_pair
 #define coutl cout<<fixed<<setprecision(10)
@@ -25,18 +27,28 @@ template<class T>inline bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}retu
 template<class T>inline bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 // clang-format on
 
-void solve(long long N, std::vector<long long> T, std::vector<long long> A) {}
+void solve(std::string S_A, std::string S_B, std::string S_C) {
+  vector<string> S = {S_A, S_B, S_C};
+  vector<ll> count(3, 0);
+  vector<unsigned long long> max = {S_A.size(), S_B.size(), S_C.size()};
+  for (ll next = 0;;) {
+    char c = S[next][count[next]++];
+    if (count[next] > max[next]) {
+      char ans = (char)next + 'A';
+      END(ans);
+    }
+    next = c - 'a';
+  }
+}
 
 // clang-format off
 int main() {
-  long long N;
-  std::scanf("%lld", &N);
-  std::vector<long long> T(N);
-  std::vector<long long> A(N);
-  for(int i = 0 ; i < N ; i++){
-    std::scanf("%lld", &T[i]);
-    std::scanf("%lld", &A[i]);
-  }
-  solve(N, std::move(T), std::move(A));
+  std::string S_A;
+  std::cin >> S_A;
+  std::string S_B;
+  std::cin >> S_B;
+  std::string S_C;
+  std::cin >> S_C;
+  solve(S_A, S_B, S_C);
   return 0;
 }

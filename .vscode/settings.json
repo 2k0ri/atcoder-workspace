@@ -99,7 +99,8 @@
     "locale": "cpp",
     "queue": "cpp",
     "stack": "cpp",
-    "all": "cpp"
+    "all": "cpp",
+    "lazysegtree": "cpp"
   },
   "cmake.buildDirectory": "${workspaceFolder}/cmake-build-debug",
   "C_Cpp.intelliSenseEngine": "Default",
