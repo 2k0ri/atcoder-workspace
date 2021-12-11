@@ -25,7 +25,21 @@ template<class T>inline bool chmax(T &a, const T &b){if (a<b){a=b;return 1;}retu
 template<class T>inline bool chmin(T &a, const T &b){if (b<a){a=b;return 1;}return 0;}
 // clang-format on
 
-void solve(long long N, std::vector<long long> T, std::vector<long long> A) {}
+void solve(long long N, std::vector<long long> T, std::vector<long long> A) {
+  rep(i, N) {
+    ll _gcd = gcd(T[i], A[i]);
+    T[i] /= _gcd;
+    A[i] /= _gcd;
+  }
+  rep1(i, N - 1) {
+    ll t = (T[i - 1] + T[i] - 1) / T[i];
+    ll a = (A[i - 1] + A[i] - 1) / A[i];
+    ll factor = max(t, a);
+    T[i] *= factor;
+    A[i] *= factor;
+  }
+  ANS(T[N - 1] + A[N - 1]);
+}
 
 // clang-format off
 int main() {
