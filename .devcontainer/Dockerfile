@@ -14,7 +14,7 @@ RUN sed -ri 's@http://(archive|security|us.archive)\.ubuntu\.com/ubuntu@http://f
     && apt-get -y install --no-install-recommends apt-utils 2>&1 \
     # 
     # Verify git, process tools, lsb-release (useful for CLI installs) installed
-    && apt-get -y install git procps lsb-release \
+    && apt-get -y install git procps lsb-release gnupg \
     #
     # Install C++ tools
     build-essential gdb cmake cppcheck ccache clang clang-format lldb liblldb-dev libboost-dev python3-pip \
