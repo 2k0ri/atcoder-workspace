@@ -14,7 +14,7 @@ set(BOOST_LIBRARY_PATH /usr/local/opt/boost/lib)
 set(BOOST_LIBS "-lboost_filesystem -lboost_system")
 include_directories(${PROJECT_SOURCE_DIR}/ac-library)
 
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cotire/CMake)
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake)
 include(cotire)
 set_directory_properties(PROPERTIES COTIRE_PREFIX_HEADER_INCLUDE_PATH ${PROJECT_SOURCE_DIR}/ac-library)
 
