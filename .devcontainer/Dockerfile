@@ -16,8 +16,11 @@ RUN sed -ri 's@http://(archive|security|us.archive)\.ubuntu\.com/ubuntu@http://f
     # Verify git, process tools, lsb-release (useful for CLI installs) installed
     && apt-get -y install git procps lsb-release gnupg \
     # Install C++ tools
-    build-essential gdb cmake cppcheck ccache clang clang-format lldb liblldb-dev libboost-dev python3-pip \
+    build-essential gdb cmake cppcheck ccache clang-10 clang-format lldb-10 liblldb-10-dev libboost-dev python3-pip \
     #
+    && ln -vs /usr/bin/clang-10 /usr/bin/clang \
+    && ln -vs /usr/bin/clang++-10 /usr/bin/clang++ \
+    && ln -vs /usr/bin/lldb-10 /usr/bin/lldb \
     && ln -vs /usr/bin/cat /usr/bin/diff-highlight \
     #
     # Clean up
@@ -26,14 +29,13 @@ RUN sed -ri 's@http://(archive|security|us.archive)\.ubuntu\.com/ubuntu@http://f
     && rm -rf /var/lib/apt/lists/* \
     #
     # Install atcoder-tools
-    && pip3 install --no-cache-dir atcoder-tools
+    && pip3 install --no-cache-dir atcoder-tools 'MarkupSafe!=2.1.0'
 
 # Build lldb-mi 10
 RUN git clone https://github.com/lldb-tools/lldb-mi.git \
     && cd lldb-mi \
     && cmake . \
     && cmake --build . \
-    && unlink /usr/bin/lldb-mi \
     && cp src/lldb-mi /usr/bin/lldb-mi \
     && cd .. \
     && rm -rf lldb-mi \
