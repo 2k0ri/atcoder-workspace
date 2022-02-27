@@ -17,6 +17,7 @@ include_directories(${PROJECT_SOURCE_DIR}/ac-library)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/CMake)
 include(cotire)
 set_directory_properties(PROPERTIES COTIRE_PREFIX_HEADER_INCLUDE_PATH ${PROJECT_SOURCE_DIR}/ac-library)
+set_target_properties(PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "bits/stdc++.h")
 
 # use ccache
 option(CCACHE_ENABLE "If the command ccache is avilable, use it for compile." ON)

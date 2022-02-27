@@ -30,41 +30,31 @@ const string NO = "No";
 // clang-format on
 
 void solve(long long N, std::vector<std::string> S) {
-  ll D = N - 6 + 1;
-  vector<string> s, sy(N), sl(D), sr(D);
-  rep(y, N) {
-    s.pb(S[y]);
-    rep(x, N) {
-      sy[x] += S[y][x];
-      rep(d, D) {
-        if (y <= d && y == x + d)
-          sl[d] += S[y][x];
-        if (y >= 5 + d && y == N - x - 1 + d)
-          sr[d] += S[y][x];
-      }
+  ll c;
+  rep(y, N) rep(x, N) {
+    if (y + 5 < N) {
+      c = 0;
+      rep(k, 6) if (S[y + k][x] == '#') c += 1;
+      if (c >= 4)
+        END(YES);
     }
-  }
-  rep(x, N) {
-    cout << "sy" << x << ": " << sy[x] << endl;
-    s.pb(sy[x]);
-  }
-  rep(d, D) {
-    s.pb(sl[d]);
-    cout << "sl" << d << ": " << sl[d] << endl;
-    s.pb(sr[d]);
-    cout << "sr" << d << ": " << sr[d] << endl;
-  }
-
-  // s.pb(sl);
-  // cout << "sl: " << sl << endl;
-  // s.pb(sr);
-  // cout << "sr: " << sr << endl;
-
-  rep(i, s.size()) rep(j, D) {
-    string ss = s[i].substr(j, 6);
-    cout << i << "-" << j << ": " << ss << endl;
-    if (count(all(ss), '.') <= 2) {
-      END(YES);
+    if (x + 5 < N) {
+      c = 0;
+      rep(k, 6) if (S[y][x + k] == '#') c += 1;
+      if (c >= 4)
+        END(YES);
+    }
+    if (y + 5 < N && x + 5 < N) {
+      c = 0;
+      rep(k, 6) if (S[y + k][x + k] == '#') c += 1;
+      if (c >= 4)
+        END(YES);
+    }
+    if (0 <= y - 5 && x + 5 < N) {
+      c = 0;
+      rep(k, 6) if (S[y - k][x + k] == '#') c += 1;
+      if (c >= 4)
+        END(YES);
     }
   }
   ANS(NO);
