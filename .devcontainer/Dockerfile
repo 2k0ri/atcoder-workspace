@@ -26,10 +26,7 @@ RUN sed -ri 's@http://(archive|security|us.archive)\.ubuntu\.com/ubuntu@http://f
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && rm -rf /var/lib/apt/lists/* \
-    #
-    # Install atcoder-tools
-    && pip3 install --no-cache-dir atcoder-tools 'MarkupSafe!=2.1.0'
+    && rm -rf /var/lib/apt/lists/*
 
 # Build lldb-mi 10
 RUN git clone https://github.com/lldb-tools/lldb-mi.git \
