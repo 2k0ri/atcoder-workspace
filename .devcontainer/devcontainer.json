@@ -16,14 +16,18 @@
 		"source=${localWorkspaceFolder}/.devcontainer/.local/share/atcoder-tools,target=/root/.local/share/atcoder-tools,type=bind,consistency=cached"
 	],
 	"postCreateCommand": "ln -sv ${containerWorkspaceFolder}/.atcodertools.toml ~/.atcodertools.toml && pip3 install --no-cache-dir -r ${containerWorkspaceFolder}/requirements.txt",
-	"extensions": [
-		"ms-vscode.cpptools",
-		"mitaki28.vscode-clang",
-		"austin.code-gnu-global",
-		"jeff-hykin.better-cpp-syntax",
-		"xaver.clang-format",
-		"webfreak.debug",
-		"ms-vscode.cmake-tools",
-		"vadimcn.vscode-lldb"
-	]
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"mitaki28.vscode-clang",
+				"austin.code-gnu-global",
+				"jeff-hykin.better-cpp-syntax",
+				"xaver.clang-format",
+				"webfreak.debug",
+				"ms-vscode.cmake-tools",
+				"vadimcn.vscode-lldb"
+			]
+		}
+	}
 }
